@@ -160,6 +160,9 @@ static Key keys[] = {
     { 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
     { 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
     /* BINDINGS FOR SCREEN - END */
+    /* BINDINGS FOR STICKY - START   */
+    { MODKEY,                       XK_s,      togglesticky,   {0} },
+    /* BINDINGS FOR STICKY - END */
     /* ***** */
 };
 
