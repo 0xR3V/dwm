@@ -7,6 +7,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 3;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -123,6 +124,11 @@ static Key keys[] = {
     TAGKEYS(                        XK_9,                      8)
     { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     /* ***** */
+    /* BINDINGS FOR GAPS - START */
+    { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+    { MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+    /* BINDINGS FOR GAPS - END */
     /* BINDINGS FOR PROGRAMS - START */
     { MODKEY|ShiftMask,             XK_b,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
     { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = (const char*[]){ "pcmanfm", NULL } } },
