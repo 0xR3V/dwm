@@ -9,6 +9,8 @@
     -
     <a href="https://github.com/0xR3V/dwm#Features">Features</a>
     -
+    <a href="https://github.com/0xR3V/dwm#Documentation">Documentation</a>
+    -
     <a href="https://github.com/0xR3V/dwm#Look">Look</a>
     -
     <a href="https://github.com/0xR3V/dwm#support-me-and-this-project">Support Me and This Project</a>
@@ -34,6 +36,9 @@ sudo make clean install
 - [fullgaps patch](https://dwm.suckless.org/patches/fullgaps/).
 - [systray patch](https://dwm.suckless.org/patches/systray/).
 - Emojie Support for the bar.
+
+# Documentation
+If you installed my build and are currently using it, press `Mod+F1` to access the documentation (if you have zathura installed). It is also available [online](https://raw.githubusercontent.com/0xR3V/screenshots/main/dwm/pdf/docs.pdf).
 
 # Look
 
