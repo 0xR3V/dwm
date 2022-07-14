@@ -1,8 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "urxvt"
 #define TERMCLASS "URxvt"
+#define TERMINAL "urxvtc"
+#define BROWSERCLASS "firefox"
 #define BROWSER "firefox"
 
 /* appearance */
@@ -49,7 +50,7 @@ static const Rule rules[] = {
     { "Alacritty",    NULL,       NULL,       1 << 2,            0,           -1 },
     { "KeePassXC",    NULL,       NULL,       1 << 6,            0,           -1 },
     { "GeoGebra",     NULL,       NULL,       1 << 8,            0,           -1 },
-    { "firefox",      NULL,       NULL,       1 << 1,            0,           -1 },
+    { BROWSERCLASS,   NULL,       NULL,       1 << 1,            0,           -1 },
     { "Arandr",       NULL,       NULL,            0,            1,           -1 },
     { "Gimp",         NULL,       NULL,       1 << 5,            0,           -1 },
     { "mpv",          NULL,       NULL,       1 << 4,            0,           -1 },
@@ -112,7 +113,6 @@ static Key keys[] = {
     { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
@@ -124,6 +124,9 @@ static Key keys[] = {
     TAGKEYS(                        XK_9,                      8)
     { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     /* ***** */
+    /* BINDINGS FOR DOCUMENTATION - START */
+    { MODKEY,                       XK_F1,     spawn,          SHCMD("pdfmom /usr/local/share/dwm/docs.mom | zathura -") },
+    /* BINDINGS FOR DOCUMENTATION - END */
     /* BINDINGS FOR GAPS - START */
     { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
     { MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
@@ -150,6 +153,9 @@ static Key keys[] = {
     { 0,                XF86XK_AudioStop,      spawn,          {.v = (const char*[]){ "mpc", "stop", NULL } } },
     { 0,                XF86XK_AudioRewind,    spawn,          {.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
     { 0,                XF86XK_AudioForward,   spawn,          {.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
+    { ShiftMask,        XF86XK_AudioRaiseVolume,   spawn,      {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
+    { ShiftMask,        XF86XK_AudioLowerVolume,   spawn,      {.v = (const char*[]){ "mpc", "volume", "-5", NULL } } },
+    { ShiftMask,        XF86XK_AudioMute,          spawn,      {.v = (const char*[]){ "mpc", "volume", "0", NULL } } },
     /* BINDINGS FOR MPD - END   */
     /* BINDINGS FOR AUDIO - START */
     { 0,                XF86XK_AudioRaiseVolume,   spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
@@ -163,6 +169,11 @@ static Key keys[] = {
     /* BINDINGS FOR STICKY - START   */
     { MODKEY,                       XK_s,      togglesticky,   {0} },
     /* BINDINGS FOR STICKY - END */
+    /* BINDINGS FOR RECORDING - START   */
+    { 0,                    XK_Print,          spawn,      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+    { ShiftMask,            XK_Print,          spawn,      {.v = (const char*[]){ "maimpick", NULL } } },
+    { MODKEY,               XK_Scroll_Lock,    spawn,      SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
+    /* BINDINGS FOR RECORDING - END */
     /* ***** */
 };
 
