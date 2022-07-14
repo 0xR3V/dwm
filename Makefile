@@ -10,9 +10,9 @@ all: options dwm
 
 options:
 	@echo dwm build options:
-	@echo "CFLAGS   = ${CFLAGS}"
-	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
+	@echo "CFLAGS	= ${CFLAGS}"
+	@echo "LDFLAGS	= ${LDFLAGS}"
+	@echo "CC		= ${CC}"
 
 .c.o:
 	${CC} -c ${CFLAGS} $<
@@ -43,9 +43,14 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
+	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
+	cp -f docs.mom AMAYW.pdf ${DESTDIR}${PREFIX}/share/dwm
+	chmod 644 ${DESTDIR}${PREFIX}/share/dwm/docs.mom
+	chmod 644 ${DESTDIR}${PREFIX}/share/dwm/AMAYW.pdf
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
+		${DESTDIR}${PREFIX}/share/dwm/docs.mom\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 .PHONY: all options clean dist install uninstall
