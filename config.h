@@ -124,6 +124,9 @@ static Key keys[] = {
     TAGKEYS(                        XK_9,                      8)
     { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     /* ***** */
+    /* BINDINGS FOR DMENU-SCRIPTS - START */
+    { MODKEY,                       XK_u,     spawn,           {.v = (const char*[]){ "dmenuunicode", NULL } } },
+    /* BINDINGS FOR DMENU-SCRIPTS - END */
     /* BINDINGS FOR DOCUMENTATION - START */
     { MODKEY,                       XK_F1,     spawn,          SHCMD("pdfmom /usr/local/share/dwm/docs.mom | zathura -") },
     /* BINDINGS FOR DOCUMENTATION - END */
@@ -172,6 +175,8 @@ static Key keys[] = {
     /* BINDINGS FOR RECORDING - START   */
     { 0,                    XK_Print,          spawn,      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
     { ShiftMask,            XK_Print,          spawn,      {.v = (const char*[]){ "maimpick", NULL } } },
+    { MODKEY,               XK_Print,          spawn,      {.v = (const char*[]){ "dmenurecord", NULL } } },
+    { MODKEY,               XK_Delete,         spawn,      {.v = (const char*[]){ "dmenurecord", "kill", NULL } } },
     { MODKEY,               XK_Scroll_Lock,    spawn,      SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
     /* BINDINGS FOR RECORDING - END */
     /* ***** */

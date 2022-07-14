@@ -28,7 +28,7 @@
 \#
 .START
 \#
-.HEADING 1 "Navigation This Document"
+.HEADING 1 "Navigating This Document"
 .LIST BULLET
 .SHIFT_LIST 18p
 .ITEM
@@ -92,13 +92,13 @@ and dwm will display the title of the window you are using in between these sect
 \#
 .HEADING 1 "Key Bindings"
 .PP
-All of the key bindings are case sensitive \*[CODE]Mod+E\*[CODE X] \[!=] \*[CODE]Mod+e\*[CODE X]\&.
+All of the key bindings are case sensitive, \*[CODE]Mod+E\*[CODE X] \[!=] \*[CODE]Mod+e\*[CODE X]\&.
 You can change these key bindings to fit your needs,
 .PDF_LINK change-binds "see: +"
 for more information.
 .BLOCKQUOTE
 .QUAD CENTER
-Mod+E = Mod+Shift+e.
+Mod+E = Mod+Shift+e
 .BLOCKQUOTE END
 .HEADING 2 "General Bindings"
 .LIST BULLET
@@ -116,11 +116,13 @@ Means Mod+Shift+q.
 .LIST OFF
 \#
 .HEADING 2 "Programs"
+\#
 .LIST BULLET
 .SHIFT_LIST 18p
 .ITEM
-\*[CODE]Mod+Enter\*[CODE X] \[->] Default terminal. (Default: urxvt)
-\#
+\*[CODE]Mod+Enter\*[CODE X] \[->] Default terminal. (Default: urxvt,
+.PDF_LINK change-binds-def "see: +"
+for information on how to change the default terminal).
 .ITEM
 \*[CODE]Mod+e\*[CODE X] \[->] dmenu\c
 .FOOTNOTE
@@ -141,7 +143,7 @@ website.
 .ITEM
 \*[CODE]Mod+K\*[CODE X] \[->] Default password manager. (Default: KeepassXC)
 .ITEM
-\*[CODE]Mod+M\*[CODE X] \[->] Default terminal based music player. (Default: ncmcpp)
+\*[CODE]Mod+M\*[CODE X] \[->] Default terminal based music player. (Default: ncmpcpp)
 .ITEM
 \*[CODE]Mod+T\*[CODE X] \[->] Default terminal based task manager. (Default: htop)
 .ITEM
@@ -175,7 +177,7 @@ for more information)
 .ITEM
 \*[CODE]Mod+(Number)\*[CODE X] \[->] Go to tag (number).
 .ITEM
-\*[CODE]Mod+Shift+(Number)\*[CODE X] \[->] Send focused window to tag (number).
+\*[CODE]Mod+Shift+(Number)\*[CODE X] \[->] Send active window to tag (number).
 .ITEM
 \*[CODE]Mod+Tab\*[CODE X] \[->] Switch between current "active" tag and the previous "active" tag.
 .ITEM
@@ -187,9 +189,9 @@ for more information)
 .ITEM
 \*[CODE]Mod+Shift+=\*[CODE X] \[->] Set gaps to \f[B]0\f[].
 .ITEM
-\*[CODE]Mod+Shift+Space\*[CODE X] \[->] Make the focused window in floating mode.
+\*[CODE]Mod+Shift+Space\*[CODE X] \[->] Make the active window in floating mode.
 .ITEM
-\*[CODE]Mod+s\*[CODE X] \[->] Toggle "sticky" mode on the focused window.
+\*[CODE]Mod+s\*[CODE X] \[->] Toggle "sticky" mode on the active window.
 .ITEM
 \*[CODE]Mod+b\*[CODE X] \[->] Toggle the statusbar.
 .LIST OFF
@@ -202,9 +204,9 @@ I use
 .PDF_WWW_LINK "https://www.musicpd.org/" "MPD"
 with
 .PDF_WWW_LINK "https://rybczak.net/ncmpcpp/" "ncmpcpp"
-as it's client, to listen to music. \f[B]If\f[] you don't use it consider making the switch. If you use arch\*[SUP]btw!\*[SUPX] read the
+as it's client, to listen to music. \f[B]If\f[] you don't use it, consider making the switch. If you use arch\*[SUP]btw!\*[SUPX] read the arch wiki
 .PDF_WWW_LINK "https://wiki.archlinux.org/title/Music_Player_Daemon" "MPD article"
-for more information on how to set it up.
+for more information on how to set it up, on your arch host.
 .LIST BULLET
 .SHIFT_LIST 18p
 .ITEM
@@ -267,6 +269,40 @@ You must have \*[CODE]xbacklight\*[CODE X] installed.
 .ITEM
 \*[CODE]Mod+Shift+(,/.)\*[CODE X] \[->] Send focused window to the other monitor.
 .LIST OFF
+.HEADING 3 "Capturing the Screen"
+.PP
+By capturing I mean screenshoting/recording a screen. Some of these bindings require you to install some scripts for \f[B]dmenu\f[]. You must have \*[CODE]maim\*[CODE x] and \*[CODE]ffmpeg\*[CODE X] installed.
+.LIST BULLET
+.SHIFT_LIST 18p
+.ITEM
+\*[CODE](PrintScreen Button)\*[CODE X] \[->] Take a full screenshot.
+.ITEM
+\*[CODE]Shift+(PrintScreen Button)\*[CODE X] \[->] multiple screenshots action (require:
+.PDF_WWW_LINK "https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/maimpick" SUFFIX ")" "Luke Smith's maimpick script"
+.PP
+Install it in \*[CODE]~/.config/local/bin/\*[CODE X]\&, and add the directory to \f[B]PATH\f[], do the same for the other scripts.
+.ITEM
+\*[CODE]Mod+(PrintScreen Button)\*[CODE X] \[->] Opens dmenu menu to select kind of audio/video recording. (require:
+.PDF_WWW_LINK "https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/dmenurecord" SUFFIX ")" "Luke Smith's dmenurecord script
+.PP
+Don't forget to put it in \*[CODE]~/.local/bin\*[CODE X]
+.ITEM
+\*[CODE]Mod+Delete\*[CODE X] \[->] Kills any recording started in the above way.
+.ITEM
+\*[CODE]Mod+(Scroll Lock Button)\*[CODE X] \[->] Opens a webcam for screencasting in the fifth tag.
+.LIST OFF
+\#
+.HEADING 1 "Additional Dmenu Scripts"
+.LIST BULLET
+.SHIFT_LIST 18p
+.ITEM
+\*[CODE]Mod+u\*[CODE X] \[->] Dmenu script to copy an emoji. (require:
+.PDF_WWW_LINK "https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/dmenuunicode" "Luke Smith's dmenuunicode script"
+and
+.PDF_WWW_LINK "https://github.com/LukeSmithxyz/voidrice/tree/master/.local/share/larbs/chars" SUFFIX ")" "Luke Smith's Emoji and font-awesome file"
+.PP
+Add \*[CODE]dmenuunicode\*[CODE X] to \*[CODE]~/.local/bin\*[CODE X] and \*[CODE]the 2 files\*[CODE X] in the \*[CODE]~/.local/share/larbs/chars/\*[CODE X]\&.
+.LIST OFF
 \#
 \# KEY BINDINGS SECTION - END
 \#
@@ -275,9 +311,12 @@ You must have \*[CODE]xbacklight\*[CODE X] installed.
 .BLOCKQUOTE
 AFTER ANY CHANGES, run "sudo make clean install" and restart dwm, for changes to reflect.
 .BLOCKQUOTE OFF
-.HEADING 2 "For the Terminal and for the Browser"
+\#
+.HEADING 2 NAMED change-binds-def "For the Terminal and for the Browser"
+\#
 .PP
 Let's say you want the default terminal "st" and the default browser "chromium", you need to change the following code in \*[CODE]config.h\*[CODE X]\&.
+.br
 \f[B]FROM:\f[]
 \#
 \# CODE BLOCK - START
@@ -316,7 +355,7 @@ new config.h
 .HEADING 2 NAMED change-binds-fop "For Other Programs"
 \#
 .PP
-If you wish to change a default program, you can do that easily. You need to change it's class in the rules section if it's specified, and the argument in the key bindings section if specified.
+If you wish to change a default program, you can do that easily. You need to change it's class in the rules section if it's specified, and the argument in the key bindings section if it's specified.
 .br
 \f[B]FROM:\f[]
 \#
@@ -393,6 +432,10 @@ new config.h
 \#
 .HEADING 1 NAMED change-binds "Changing Key Bindings"
 \#
+.BLOCKQUOTE
+AFTER ANY CHANGES, run "sudo make clean install" and restart dwm, for changes to reflect.
+.BLOCKQUOTE OFF
+\#
 .PP
 Changing bindings is very simple. I will showcase to you how to change a binding in an example. Let's say you want to change the dmenu binding from \*[CODE]Mod+e\*[CODE X] to \*[CODE]Mod+p\*[CODE X]\&, you will need to change key in keys section.
 .br
@@ -402,7 +445,7 @@ Changing bindings is very simple. I will showcase to you how to change a binding
 \#
 .QUOTE
 .RIGHT
-new config.h
+old config.h
 .LEFT
 \*S[-3.50]
 \f[CB]\m[blue]static\m[]\fP \m[teal]Key\m[] keys\m[darkred][]\m[] \m[darkred]=\m[] \m[red]{\m[]
@@ -434,8 +477,9 @@ new config.h
 \#
 \# CODE BLOCK - END
 \#
+.NEWPAGE
 .HEADING 1 "Consider Making a Donation"
-You can support the creator of this build of dwm, by sending him some monero!
+You can support the creator of this build of dwm, by sending some monero!
 .br
 .LIST
 .QUOTE
@@ -449,5 +493,8 @@ Monero
 .QUOTE OFF
 .PDF_IMAGE -C \
  /usr/local/share/dwm/AMAYW.pdf 179.981p 179.981p
+.RIGHT
+\f[B]\&...thank you :)\f[]
+.FINIS
 .TOC_RV_SWITCH
 .TOC INCLUDE_TITLE
